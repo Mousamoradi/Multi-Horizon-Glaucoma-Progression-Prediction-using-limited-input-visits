@@ -146,29 +146,13 @@ License
 
 This project is licensed under the MIT License.
 
-You may include a LICENSE file with the standard MIT license text.
 
 Citation
 
 If you use this code, please cite:
 
-@article{moradi2025multimodal,
-  author  = {Moradi, M. and Cao-Xue, J. and Eslami, M. and Wang, M. and Elze, T. and Zebardast, N.},
-  title   = {Multimodal Deep Learning for Longitudinal Prediction of Glaucoma Progression Using Sequential RNFL, Visual Field, and Clinical Data},
-  journal = {medRxiv},
-  year    = {2025},
-  pages   = {2025--10}
-}
-
-Or in plain text:
-
 Moradi, M., Cao-Xue, J., Eslami, M., Wang, M., Elze, T. and Zebardast, N., 2025. Multimodal Deep Learning for Longitudinal Prediction of Glaucoma Progression Using Sequential RNFL, Visual Field, and Clinical Data. medRxiv, pp.2025-10.
 
 Contact
 
-For questions, issues, or collaboration, please open a GitHub issue in this repository.
-
-
-A couple of quick fixes before you post it:
-- your code headers currently mention an IEEE TBME paper title, while the citation you gave is a medRxiv paper, so I would make those consistent in the scripts too. 
-- your BibTeX page field `2025--10` looks unusual for a medRxiv citation, so use the exact DOI or article identifier if you have it.
+mmoradi2@meei.harvard.edu
