@@ -31,3 +31,144 @@ The workflow is organized into three stages:
 ├── sequence_generation.py
 ├── model_training.py
 └── README.md
+```
+Requirements
+
+Recommended environment:
+
+Python 3.10+
+PyTorch
+torchvision
+pandas
+numpy
+scikit-learn
+Pillow
+
+Depending on your environment, you may also want:
+
+scipy
+statsmodels
+matplotlib
+jupyter
+
+Example installation:
+pip install torch torchvision pandas numpy scikit-learn pillow scipy statsmodels matplotlib
+Input Data
+
+The scripts expect structured CSV files containing longitudinal glaucoma data. At minimum, your data should include:
+
+patient_id
+eye
+exam_date
+md
+avg_rnfl
+
+Additional columns used by the pipeline may include:
+
+false_positive_rate
+signal_strength
+age
+sex
+race
+vfi
+vf_progression
+Severity
+gl_subtype
+
+You may need to adjust column names in the scripts to match your local dataset.
+
+Step 1: Data Preparation
+
+data_preparation.py loads VF and cpRNFL CSV files, matches records within a date window, applies quality filters, computes MD slope, and assigns progression categories.
+
+Example
+python data_preparation.py \
+  --vf_path /path/to/vf_data.csv \
+  --rnfl_path /path/to/rnfl_data.csv \
+  --output_path prepared_data.csv
+Output
+
+A prepared CSV file containing matched VF-cpRNFL records, MD slope estimates, and progression categories.
+
+Step 2: Sequence Generation
+
+sequence_generation.py converts prepared longitudinal data into sparse-observation sequences using two input visits (T0, T1) and assigns multi-horizon labels for years 2, 3, and 4. Missing horizon labels are masked rather than excluded.
+
+Example
+python sequence_generation.py \
+  --input_path prepared_data.csv \
+  --output_path sequences.csv
+Output
+
+A sequences.csv file containing:
+
+T0/T1 dates
+baseline and follow-up covariates
+subtype and severity metadata
+horizon labels label_y2, label_y3, and label_y4
+Step 3: Model Training
+
+model_training.py trains the multimodal Bi-LSTM model using the generated sequences and image files. It supports multiple pretrained image backbones and performs patient-level cross-validation.
+
+Example
+python model_training.py \
+  --sequences_path sequences.csv \
+  --image_dir /path/to/images \
+  --backbone convnext \
+  --output_dir ./results
+Supported backbones
+convnext
+vit
+mobilenet
+efficientnet
+Output
+
+The training script saves:
+
+best model checkpoints for each fold
+cross-validation metrics in JSON format
+Notes
+The model expects paired cpRNFL and VF images at both T0 and T1.
+Missing image files are currently replaced with zero tensors during loading.
+Patient-level grouped cross-validation is used to reduce data leakage across folds.
+Horizon labels are masked when follow-up is unavailable within the tolerance window.
+Reproducibility
+
+The training script includes random seed initialization for Python, NumPy, and PyTorch to improve reproducibility.
+
+Data Availability
+
+This repository does not include patient data.
+
+Because the study uses clinical ophthalmic data, raw data may be subject to institutional review board, privacy, and data-sharing restrictions. Users should prepare their own dataset in a compatible format.
+
+License
+
+This project is licensed under the MIT License.
+
+You may include a LICENSE file with the standard MIT license text.
+
+Citation
+
+If you use this code, please cite:
+
+@article{moradi2025multimodal,
+  author  = {Moradi, M. and Cao-Xue, J. and Eslami, M. and Wang, M. and Elze, T. and Zebardast, N.},
+  title   = {Multimodal Deep Learning for Longitudinal Prediction of Glaucoma Progression Using Sequential RNFL, Visual Field, and Clinical Data},
+  journal = {medRxiv},
+  year    = {2025},
+  pages   = {2025--10}
+}
+
+Or in plain text:
+
+Moradi, M., Cao-Xue, J., Eslami, M., Wang, M., Elze, T. and Zebardast, N., 2025. Multimodal Deep Learning for Longitudinal Prediction of Glaucoma Progression Using Sequential RNFL, Visual Field, and Clinical Data. medRxiv, pp.2025-10.
+
+Contact
+
+For questions, issues, or collaboration, please open a GitHub issue in this repository.
+
+
+A couple of quick fixes before you post it:
+- your code headers currently mention an IEEE TBME paper title, while the citation you gave is a medRxiv paper, so I would make those consistent in the scripts too. 
+- your BibTeX page field `2025--10` looks unusual for a medRxiv citation, so use the exact DOI or article identifier if you have it.
