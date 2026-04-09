@@ -77,7 +77,7 @@ gl_subtype
 
 You may need to adjust column names in the scripts to match your local dataset.
 
-** Step 1: Data Preparation
+**Step 1: Data Preparation**
 
 data_preparation.py loads VF and cpRNFL CSV files, matches records within a date window, applies quality filters, computes MD slope, and assigns progression categories.
 
@@ -90,7 +90,7 @@ Output
 
 A prepared CSV file containing matched VF-cpRNFL records, MD slope estimates, and progression categories.
 
-Step 2: Sequence Generation
+**Step 2: Sequence Generation**
 
 sequence_generation.py converts prepared longitudinal data into sparse-observation sequences using two input visits (T0, T1) and assigns multi-horizon labels for years 2, 3, and 4. Missing horizon labels are masked rather than excluded.
 
