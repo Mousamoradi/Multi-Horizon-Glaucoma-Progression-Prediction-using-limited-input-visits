@@ -136,18 +136,18 @@ Reproducibility
 
 The training script includes random seed initialization for Python, NumPy, and PyTorch to improve reproducibility.
 
-Data Availability
+## Data Availability
 
 This repository does not include patient data.
 
 Because the study uses clinical ophthalmic data, raw data may be subject to institutional review board, privacy, and data-sharing restrictions. Users should prepare their own dataset in a compatible format.
 
-License
+## License
 
 This project is licensed under the MIT License.
 
 
-Citation
+## Citation
 
 If you use this code, please cite:
 
