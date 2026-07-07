@@ -186,5 +186,5 @@ If you use this code, please cite:
 
 ## Contact
 
-Mousa Moradi — `mmoradi2@meei.harvard.edu`
+Mousa Moradi: `mmoradi2@meei.harvard.edu`
 Harvard Ophthalmology AI Lab, Schepens Eye Research Institute / Mass Eye and Ear / Harvard Medical School.
