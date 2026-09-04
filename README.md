@@ -180,7 +180,7 @@ MIT License. See [`LICENSE`](LICENSE).
 
 If you use this code, please cite:
 
-> Zebardast, Nazlee, Mousa Moradi, Jerry Cao-Xue, Asahi Fujita, Daniel Liebman, Alessandro Jammal, Mengyu Wang, Tobias Elze, and Mohammad Eslami. * "Sparse-Observation Multi-Horizon Glaucoma Progression Forecasting with Biologically Constrained Temporal Consistency: A Glaucoma Case Study." * (2026).
+> Zebardast, Nazlee, Mousa Moradi, Jerry Cao-Xue, Asahi Fujita, Daniel Liebman, Alessandro Jammal, Mengyu Wang, Tobias Elze, and Mohammad Eslami. **"Sparse-Observation Multi-Horizon Glaucoma Progression Forecasting with Biologically Constrained Temporal Consistency: A Glaucoma Case Study."** (2026).
 
 ---
 
