@@ -180,7 +180,7 @@ MIT License. See [`LICENSE`](LICENSE).
 
 If you use this code, please cite:
 
-> Moradi, M., Cao-Xue, J., Eslami, M., Wang, M., Elze, T., and Zebardast, N. (2025). *Multimodal Deep Learning for Longitudinal Prediction of Glaucoma Progression Using Sequential RNFL, Visual Field, and Clinical Data.* medRxiv, 2025-10.
+> Zebardast, Nazlee, Mousa Moradi, Jerry Cao-Xue, Asahi Fujita, Daniel Liebman, Alessandro Jammal, Mengyu Wang, Tobias Elze, and Mohammad Eslami. *"Sparse-Observation Multi-Horizon Glaucoma Progression Forecasting with Biologically Constrained Temporal Consistency: A Glaucoma Case Study." *(2026).
 
 ---
 
